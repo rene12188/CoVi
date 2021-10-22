@@ -1,1 +1,3 @@
 Eher Referenzen verwenden als Bilder in den RAM laden
+Verbesserung
+QUelle: https://www.tensorflow.org/tutorials/load_data/images
