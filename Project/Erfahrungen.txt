@@ -1,7 +1,14 @@
-Eher Referenzen verwenden als Bilder in den RAM laden
-Verbesserung
-QUelle: https://www.tensorflow.org/tutorials/load_data/images
+Eher Tensorflow verwenden als Bilder in den RAM laden -> keine gute Zeit
+https://www.tensorflow.org/tutorials/load_data/images
 
-9er Braucht ein kleines Häckchen am Fuß
 
-das sortieren war sehr nervig
+Datenset ist nicht sehr robust->
+9er ist am schlimmsten und braucht immer ein kleines Häckchen am Fuß
+
+
+sortieren hätte besser gelöst werden können
+
+bessere Planung notwending (wo ist das Bild in welchem Zustand) -> usability der Klasse ist deshalb schlecht
+
+gut erweiterbar solag die Rechnung von EVAL ausgeführt werden kann ist alles möglich
+

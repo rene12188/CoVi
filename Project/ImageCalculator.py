@@ -28,7 +28,7 @@ class DigitCalculator:
         for symbol in detected_labels:
             calcu += symbol
 
-
+        print(calcu)
         return eval(calcu)
 
 
@@ -70,7 +70,7 @@ class DigitCalculator:
             output = image.copy()
             cv2.rectangle(output, (x, y), (x + w, y + h), (0, 255, 0), 3)
             crop = image.copy()
-            crop = crop[y :y + h , x :x + h ]
+            crop = crop[y:y + h, x:x + h]
 
             data.append(crop)
             x_data.append(x)
@@ -89,7 +89,6 @@ class DigitCalculator:
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         # plt.imshow(img, cmap = 'gray')
         img = cv2.resize(img, (40, 40))
-        norm_image = cv2.normalize(img, None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
         norm_image = img / 255
         norm_image = norm_image.reshape((norm_image.shape[0], norm_image.shape[1], 1))
         case = np.asarray([norm_image])
