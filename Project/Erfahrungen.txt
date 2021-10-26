@@ -2,4 +2,6 @@ Eher Referenzen verwenden als Bilder in den RAM laden
 Verbesserung
 QUelle: https://www.tensorflow.org/tutorials/load_data/images
 
-9er Braucht hacken
+9er Braucht ein kleines Häckchen am Fuß
+
+das sortieren war sehr nervig
