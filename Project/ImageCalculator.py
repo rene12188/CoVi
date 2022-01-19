@@ -1,10 +1,10 @@
 import os
 
 import cv2
-
 import tensorflow.keras as keras
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 class DigitCalculator:
 
@@ -65,12 +65,9 @@ class DigitCalculator:
             y = stats[i, cv2.CC_STAT_TOP]
             w = stats[i, cv2.CC_STAT_WIDTH]
             h = stats[i, cv2.CC_STAT_HEIGHT]
-            area = stats[i, cv2.CC_STAT_AREA]
-            (cX, cY) = centroids[i]
-            output = image.copy()
-            cv2.rectangle(output, (x, y), (x + w, y + h), (0, 255, 0), 3)
             crop = image.copy()
-            crop = crop[y:y + h, x:x + h]
+            crop = crop[y:y + h, x:x + w]
+            returnarray.append(crop)
 
             data.append(crop)
             x_data.append(x)
@@ -87,11 +84,15 @@ class DigitCalculator:
 
     def __prediction(self, img):
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        # plt.imshow(img, cmap = 'gray')
+        img = cv2.normalize(img, img, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U)
+
+
         img = cv2.resize(img, (40, 40))
-        norm_image = img / 255
+        norm_image = img
         norm_image = norm_image.reshape((norm_image.shape[0], norm_image.shape[1], 1))
+       # plt.imshow(img, cmap='gray')
         case = np.asarray([norm_image])
+        self.debugout = case
         pred = np.argmax(self.model.predict([case]), axis=-1)
         return ([i for i in self.train_set if self.train_set[i] == (pred[0])][0], pred)
 
